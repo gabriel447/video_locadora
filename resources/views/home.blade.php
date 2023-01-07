@@ -11,6 +11,7 @@
         <div>
             <ul>
                 <li><a href="clientes">Clientes</a></li>
+                <li><a href="filmes">Filmes</a></li>
             </ul>
         </div>
 </body>

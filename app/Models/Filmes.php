@@ -4,9 +4,9 @@
 
     use Illuminate\Database\Eloquent\Model;
 
-    class Home extends Model
+    class Filmes extends Model
     {
-        protected $table = 'locados';
+        protected $table = 'filmes';
         public $timestamps = false;
     }
 ?>

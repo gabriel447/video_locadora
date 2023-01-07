@@ -17,7 +17,11 @@ Route::get('/', [HomeController::class, 'index']);
 
 // select
 Route::get('/clientes', [ClientesController::class, 'index']);
+Route::get('/filmes', [FilmesController::class, 'index']);
 
 // insert & delete 
 Route::post('/clientes', [ClientesController::class, 'cadastrarCliente']);
 Route::get('{id}', [ClientesController::class, 'apagarCliente']);
+
+// insert & update
+Route::post('/filmes', [FilmesController::class, 'cadastrarLocacao']);

@@ -9,6 +9,4 @@
         protected $table = 'clientes';
         public $timestamps = false;
     }
-    
-
 ?>

@@ -1,5 +1,6 @@
 <?php
 
+namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,7 +13,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// select
+Route::get('/clientes', [ClientesController::class, 'index']);
+
+// insert & delete 
+Route::post('/clientes', [ClientesController::class, 'cadastrarCliente']);
+Route::get('{id}', [ClientesController::class, 'apagarCliente']);

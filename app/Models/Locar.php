@@ -8,6 +8,7 @@
     {
         protected $table = 'controle';
         protected $filmes = 'filmes';
+        protected $clientes = 'clientes';
         public $timestamps = false;
     }
 ?>

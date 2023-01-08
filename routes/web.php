@@ -20,9 +20,7 @@ Route::get('/clientes', [ClientesController::class, 'index']);
 Route::get('/filmes', [FilmesController::class, 'index']);
 Route::get('/locar', [LocarController::class, 'index']);
 
-// insert
+// insert, update
 Route::post('/clientes', [ClientesController::class, 'cadastrarCliente']);
 Route::post('/filmes', [FilmesController::class, 'cadastrarFilme']);
 Route::post('/locar', [LocarController::class, 'cadastrarLocacao']);
-
-// update e delete

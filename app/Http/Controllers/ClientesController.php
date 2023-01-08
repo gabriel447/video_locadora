@@ -37,13 +37,6 @@ class ClientesController extends Controller
 			die();
         }
 	}
-
-	public function apagarCliente($id)
-	{
-		Clientes::find($id)->delete();
-		echo '<script>alert("Apagado com sucesso!")</script>';
-		echo '<script>location.href="'.BASE_USERS.'"</script>';
-	}
 }
 
 ?>

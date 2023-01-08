@@ -47,6 +47,7 @@ require __DIR__.'/../vendor/autoload.php';
 define('BASE_URL','http://localhost/video_locadora/public/index');
 define('BASE_USERS','http://localhost/video_locadora/public/clientes');
 define('BASE_MOVIES','http://localhost/video_locadora/public/filmes');
+define('BASE_LOCAR','http://localhost/video_locadora/public/locar');
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
 

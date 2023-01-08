@@ -14,18 +14,19 @@ class FilmesController extends Controller
         return view('filmes', $data);
     }   
     
-    public function cadastrarLocacao(Request $req) 
+    public function cadastrarFilme(Request $req) 
     {
-        if ($req->has('cadastrar')){
+        if ($req->has('cadastrarfilme')){
 
+            $nome = $req->input('nome');
+            $genero = $req->input('genero');
+            $ano = $req->input('ano');
             $cod = $req->input('cod');
-            $cpf = $req->input('cpf');
-            $data = date('Y/m/d');
-
-            DB::update('update filmes set disponivel = 1 where cod = ?', [$cod]);
-            DB::insert('insert into locados (cod_filme, cpf_cliente, data_locado) values (?, ?, ?)', [$cod, $cpf, $data]);
-             
-            echo '<script>alert("Locado com sucesso!")</script>';
+            $disponivel = 0;
+            
+            DB::insert('insert into filmes (nome, genero, lancamento, disponivel, cod) values (?, ?, ?, ?, ?)', [$nome, $genero, $ano, $disponivel, $cod]);
+     
+            echo '<script>alert("Cadastrado com sucesso!")</script>';
 		    echo '<script>location.href="'.BASE_MOVIES.'"</script>';
 		    die();   
         }

@@ -44,13 +44,15 @@
         </table>
     </div>
 
-    <h2>Cadastrar locação:</h2>
+    <h2>Cadastrar Filme:</h2>
     <div>
         <form method="post">
             {{csrf_field()}}
-            <input type="number" name="cod" placeholder="COD..." required>
-            <input type="number" name="cpf" placeholder="CPF..." required>
-            <input style="margin-top: 20px;" type="submit" name="cadastrar" value="Cadastrar">
+            <input type="text" name="nome" placeholder="Nome..." required>
+            <input type="text" name="genero" placeholder="Gênero..." required>
+            <input type="number" name="ano" placeholder="Ano de Lançamento.." required>
+            <input type="number" name="cod" placeholder="Código..." required>
+            <input style="margin-top: 20px;" type="submit" name="cadastrarfilme" value="Cadastrar">
         </form>
     </div>
 
@@ -63,8 +65,14 @@
         padding-bottom: 20px;
     }
 
-    th,
-    td {
+    td,
+    th {
         padding-right: 20px;
+    }
+
+    input {
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
     }
 </style>

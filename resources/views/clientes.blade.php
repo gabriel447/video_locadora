@@ -31,7 +31,6 @@
                     <td>{{$cliente->telefone}}</td>
                     <td>{{$cliente->cep}}</td>
                     <td>{{$cliente->cpf}}</td>
-                    <td><a href="{{$cliente->id}}">apagar</a></td>
                 </tr>
             </tbody>
             @endforeach

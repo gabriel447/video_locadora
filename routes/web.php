@@ -15,13 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [HomeController::class, 'index']);
 
-// select
+// select *
 Route::get('/clientes', [ClientesController::class, 'index']);
 Route::get('/filmes', [FilmesController::class, 'index']);
+Route::get('/locar', [LocarController::class, 'index']);
 
-// insert & delete 
+// insert
 Route::post('/clientes', [ClientesController::class, 'cadastrarCliente']);
-Route::get('{id}', [ClientesController::class, 'apagarCliente']);
+Route::post('/filmes', [FilmesController::class, 'cadastrarFilme']);
+Route::post('/locar', [LocarController::class, 'cadastrarLocacao']);
 
-// insert & update
-Route::post('/filmes', [FilmesController::class, 'cadastrarLocacao']);
+// update e delete

@@ -4,8 +4,10 @@
 
     use Illuminate\Database\Eloquent\Model;
 
-    class Home extends Model
+    class Locar extends Model
     {
+        protected $table = 'controle';
+        protected $filmes = 'filmes';
         public $timestamps = false;
     }
 ?>

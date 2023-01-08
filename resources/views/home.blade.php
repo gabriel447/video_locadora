@@ -12,6 +12,7 @@
             <ul>
                 <li><a href="clientes">Clientes</a></li>
                 <li><a href="filmes">Filmes</a></li>
+                <li><a href="locar">Cadastrar Locação</a></li>
             </ul>
         </div>
 </body>

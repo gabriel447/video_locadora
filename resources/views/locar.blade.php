@@ -8,9 +8,12 @@
 </head>
 
 <body>
-    <div>
+<div>
         <li><a href="./">voltar</a></li>
     </div>
+
+    <h2>Lista de Locações:</h2>
+
 
     <div>
         <table>

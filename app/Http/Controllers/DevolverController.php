@@ -1,0 +1,64 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+use App\Models\Devolver;
+use App\Models\Locar;
+use App\Models\Filmes;
+use App\Models\Clientes;
+
+use Illuminate\Support\Facades\DB;
+
+class DevolverController extends Controller
+{
+    public function index()
+    {
+        $filmes['filmes'] = Filmes::all();
+        $clientes['clientes'] = Clientes::all();
+        $data['controle'] = Locar::all();
+        $table['historico'] = Devolver::all();
+        return view('devolver', $filmes, $clientes, $data, $table);
+    }
+
+    public function cadastrarEntrega(Request $req)
+    {
+        if ($req->has('devolver')) {
+            $cpf = $req->input('cpf');
+            $cod = $req->input('cod');
+            $valor = 10;
+            $multa = 3;
+            $valor_total = $valor + $multa;
+
+            $data_locado  = DB::table('controle')->where('cod_filme', $cod)->value('data_locado');
+            $date_devolucao = date('Y-m-d');
+
+            $data_inicio = date_create($data_locado);
+            $data_fim = date_create($date_devolucao);
+
+            // Resgata diferença entre as datas
+            $interval = date_diff($data_inicio, $data_fim);
+
+            // print_r($interval);
+
+            if ($interval->days >= 3) {
+                // echo $interval->format('%a dias');
+                DB::insert('insert into historico (cpf_cliente, cod_filme, data_devolucao, valor, multa, valor_total) values (?, ?, ?, ?, ?, ?)', [$cpf, $cod, $data_fim, $valor, $multa, $valor_total]);
+
+                echo '<script>alert("Devolução com multa!")</script>';
+                echo '<script>location.href="'.BASE_DEVOL.'"</script>';
+                die(); 
+            } else {
+                $multa = 0;
+                $valor_total = $valor + $multa;
+                // echo $interval->format('%a dias');
+                DB::insert('insert into historico (cpf_cliente, cod_filme, data_devolucao, valor, multa, valor_total) values (?, ?, ?, ?, ?, ?)', [$cpf, $cod, $data_fim, $valor, $multa, $valor_total]);
+
+                echo '<script>alert("Devolução Realizada com Sucesso!")</script>';
+                echo '<script>location.href="'.BASE_DEVOL.'"</script>';
+            }
+        }
+    }
+}

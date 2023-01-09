@@ -18,23 +18,27 @@
         <table>
             <thead>
                 <tr>
-                    <th scope="col">cpf_cliente</th scope="col">
-                    <th scope="col">cod_filme</th scope="col">
-                    <th scope="col">data_devolucao</th scope="col">
+                    <th scope="col">cod</th scope="col">
+                    <th scope="col">cpf</th scope="col">
+                    <th scope="col">data de devolucao</th scope="col">
                     <th scope="col">valor</th scope="col">
                     <th scope="col">multa</th scope="col">
-                    <th scope="col">valor_total</th scope="col">
+                    <th scope="col">valor total</th scope="col">
                 </tr>
             </thead>
             @foreach($historicos as $hist)
             <tbody>
                 <tr>
+                    <th scope="row">{{$hist->cod_filme}}</th>
                     <td>{{$hist->cpf_cliente}}</td>
-                    <td>{{$hist->cod_filme}}</td>
                     <td>{{$hist->data_devolucao}}</td>
                     <td>{{$hist->valor}}</td>
-                    <td style="color:red">{{$hist->multa}}</td>
-                    <td>{{$hist->valor_total}}</td>
+                    @if($hist->multa >= 3)
+                    <td style="color:red;">sim</td>
+                    @else
+                    <td>não</td>
+                    @endif
+                    <td>R$ <a>{{$hist->valor_total}}</a></td>
                 </tr>
             </tbody>
             @endforeach

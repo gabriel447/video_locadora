@@ -27,17 +27,17 @@ class DevolverController extends Controller
             $valor_total = $valor + $multa;
 
             $data_locado  = DB::table('controle')->where('cod_filme', $cod)->value('data_locado');
-            $date_devolucao = date('Y-m-d');
+            $data_devolucao = date('Y-m-d');
 
             $data_inicio = date_create($data_locado);
-            $data_fim = date_create($date_devolucao);
+            $data_fim = date_create($data_devolucao);
 
             // Resgata diferença entre as datas
             $interval = date_diff($data_inicio, $data_fim);
 
             // print_r($interval);
 
-            if ($interval->days >= 3) {
+            if ($interval->days >= 4) {
                 // echo $interval->format('%a dias');
                 DB::update('update filmes set disponivel = 0 where cod = ?', [$cod]);
                 DB::insert('insert into historicos (cpf_cliente, cod_filme, data_devolucao, valor, multa, valor_total) values (?, ?, ?, ?, ?, ?)', [$cpf, $cod, $data_fim, $valor, $multa, $valor_total]);

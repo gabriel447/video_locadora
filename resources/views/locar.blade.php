@@ -18,20 +18,20 @@
         <table>
             <thead>
                 <tr>
-                    <th scope="col">nome do cliente</th>
-                    <th scope="col">cpf</th>
                     <th scope="col">nome do filme</th>
                     <th scope="col">cod</th>
+                    <th scope="col">nome do cliente</th>
+                    <th scope="col">cpf</th>
                     <th scope="col">data de locação</th>
                 </tr>
             </thead>
             @foreach($controle as $ctrl)
             <tbody>
                 <tr>
-                    <td>{{$ctrl->nome_cliente}}</td>
-                    <td>{{$ctrl->cpf_cliente}}</td>
                     <td>{{$ctrl->nome_filme}}</td>
                     <td>{{$ctrl->cod_filme}}</td>
+                    <td>{{$ctrl->nome_cliente}}</td>
+                    <td>{{$ctrl->cpf_cliente}}</td>
                     <td>{{$ctrl->data_locado}}</td>
                 </tr>
             </tbody>

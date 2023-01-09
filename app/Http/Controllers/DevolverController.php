@@ -45,7 +45,9 @@ class DevolverController extends Controller
 
             if ($interval->days >= 3) {
                 // echo $interval->format('%a dias');
+                DB::update('update filmes set disponivel = 0 where cod = ?', [$cod]);
                 DB::insert('insert into historico (cpf_cliente, cod_filme, data_devolucao, valor, multa, valor_total) values (?, ?, ?, ?, ?, ?)', [$cpf, $cod, $data_fim, $valor, $multa, $valor_total]);
+                DB::delete('delete from controle where cpf_cliente = ? and cod_filme = ?', [$cpf, $cod]);
 
                 echo '<script>alert("Devolução com multa!")</script>';
                 echo '<script>location.href="'.BASE_DEVOL.'"</script>';
@@ -54,7 +56,9 @@ class DevolverController extends Controller
                 $multa = 0;
                 $valor_total = $valor + $multa;
                 // echo $interval->format('%a dias');
+                DB::update('update filmes set disponivel = 0 where cod = ?', [$cod]);
                 DB::insert('insert into historico (cpf_cliente, cod_filme, data_devolucao, valor, multa, valor_total) values (?, ?, ?, ?, ?, ?)', [$cpf, $cod, $data_fim, $valor, $multa, $valor_total]);
+                DB::delete('delete from controle where cpf_cliente = ? and cod_filme = ?', [$cpf, $cod]);
 
                 echo '<script>alert("Devolução Realizada com Sucesso!")</script>';
                 echo '<script>location.href="'.BASE_DEVOL.'"</script>';

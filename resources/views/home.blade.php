@@ -12,8 +12,8 @@
             <ul>
                 <li><a href="clientes">Clientes</a></li>
                 <li><a href="filmes">Filmes</a></li>
-                <li><a href="locar">Cadastrar Locação</a></li>
-                <li><a href="devolver">Cadastrar Devolução</a></li>
+                <li><a href="locar">Locações</a></li>
+                <li><a href="devolver">Devoluções</a></li>
             </ul>
         </div>
 </body>

@@ -6,9 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Devolver;
-use App\Models\Locar;
-use App\Models\Filmes;
-use App\Models\Clientes;
 
 use Illuminate\Support\Facades\DB;
 
@@ -16,11 +13,8 @@ class DevolverController extends Controller
 {
     public function index()
     {
-        $filmes['filmes'] = Filmes::all();
-        $clientes['clientes'] = Clientes::all();
-        $data['controle'] = Locar::all();
-        $table['historico'] = Devolver::all();
-        return view('devolver', $filmes, $clientes, $data, $table);
+        $table['historicos'] = Devolver::all();
+        return view('devolver', $table);
     }
 
     public function cadastrarEntrega(Request $req)
@@ -46,7 +40,7 @@ class DevolverController extends Controller
             if ($interval->days >= 3) {
                 // echo $interval->format('%a dias');
                 DB::update('update filmes set disponivel = 0 where cod = ?', [$cod]);
-                DB::insert('insert into historico (cpf_cliente, cod_filme, data_devolucao, valor, multa, valor_total) values (?, ?, ?, ?, ?, ?)', [$cpf, $cod, $data_fim, $valor, $multa, $valor_total]);
+                DB::insert('insert into historicos (cpf_cliente, cod_filme, data_devolucao, valor, multa, valor_total) values (?, ?, ?, ?, ?, ?)', [$cpf, $cod, $data_fim, $valor, $multa, $valor_total]);
                 DB::delete('delete from controle where cpf_cliente = ? and cod_filme = ?', [$cpf, $cod]);
 
                 echo '<script>alert("Devolução com multa!")</script>';
@@ -57,7 +51,7 @@ class DevolverController extends Controller
                 $valor_total = $valor + $multa;
                 // echo $interval->format('%a dias');
                 DB::update('update filmes set disponivel = 0 where cod = ?', [$cod]);
-                DB::insert('insert into historico (cpf_cliente, cod_filme, data_devolucao, valor, multa, valor_total) values (?, ?, ?, ?, ?, ?)', [$cpf, $cod, $data_fim, $valor, $multa, $valor_total]);
+                DB::insert('insert into historicos (cpf_cliente, cod_filme, data_devolucao, valor, multa, valor_total) values (?, ?, ?, ?, ?, ?)', [$cpf, $cod, $data_fim, $valor, $multa, $valor_total]);
                 DB::delete('delete from controle where cpf_cliente = ? and cod_filme = ?', [$cpf, $cod]);
 
                 echo '<script>alert("Devolução Realizada com Sucesso!")</script>';

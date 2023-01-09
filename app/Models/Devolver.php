@@ -6,10 +6,7 @@
 
     class Devolver extends Model
     {
-        protected $table = 'historico';
-        protected $data = 'contole';
-        protected $filmes = 'filmes';
-        protected $clientes = 'clientes';
+        protected $table = 'historicos';
         public $timestamps = false;
     }
 ?>

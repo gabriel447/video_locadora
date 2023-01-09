@@ -34,7 +34,7 @@
                     <td>{{$filme->lancamento}}</td>
 
                     @if($filme->disponivel == 1)
-                    <td>locado</td>
+                    <td style="color:red;">locado</td>
                     @else
                     <td>ok</td>
                     @endif

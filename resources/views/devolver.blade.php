@@ -18,25 +18,26 @@
         <table>
             <thead>
                 <tr>
-                    <th scope="col">cpf</th>
-                    <th scope="col">cod</th>
-                    <th scope="col">data de entrega</th>
-                    <th scope="col">valor da locação</th>
-                    <th scope="col">valor da multa</th>
-                    <th scope="col">valor total</th>
+                    <th scope="col">cpf_cliente</th scope="col">
+                    <th scope="col">cod_filme</th scope="col">
+                    <th scope="col">data_devolucao</th scope="col">
+                    <th scope="col">valor</th scope="col">
+                    <th scope="col">multa</th scope="col">
+                    <th scope="col">valor_total</th scope="col">
                 </tr>
             </thead>
-
+            @foreach($historicos as $hist)
             <tbody>
                 <tr>
-                    <td>09134575901</td>
-                    <td>2312948</td>
-                    <td>2023-01-09</td>
-                    <td>R$ <a>10</a>.00</td>
-                    <td style="color:red;";>R$ <a>3</a>.00</td>
-                    <td>R$ <a>13</a>.00</td>
+                    <td>{{$hist->cpf_cliente}}</td>
+                    <td>{{$hist->cod_filme}}</td>
+                    <td>{{$hist->data_devolucao}}</td>
+                    <td>{{$hist->valor}}</td>
+                    <td style="color:red">{{$hist->multa}}</td>
+                    <td>{{$hist->valor_total}}</td>
                 </tr>
             </tbody>
+            @endforeach
         </table>
     </div>
 

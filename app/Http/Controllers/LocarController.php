@@ -63,11 +63,13 @@ class LocarController extends Controller
                         die();
                     }
                 } else {
-                    echo 'cpf inválido!';
+                    echo '<script>alert("cpf inválido!")</script>';
+                    echo '<script>location.href="' . BASE_LOCAR . '"</script>';
                     die();
                 }
             } else {
-                echo 'o código precisa ter 7 dígitos!';
+                echo '<script>alert("o código precisa ter 7 dígitos!")</script>';
+                echo '<script>location.href="' . BASE_LOCAR . '"</script>';
                 die();
             }
         }

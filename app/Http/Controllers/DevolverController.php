@@ -26,7 +26,7 @@ class DevolverController extends Controller
             $data_locado  = DB::table('controle')->where('cod_filme', $cod)->value('data_locado');
             date_default_timezone_set('America/Sao_Paulo');
             // $data_devolucao = date('Y-m-d');
-            $data_devolucao = date('2023-01-17');
+            $data_devolucao = date('2023-01-18');
 
             $data_inicio = date_create($data_locado);
             $data_fim = date_create($data_devolucao);
@@ -74,21 +74,26 @@ class DevolverController extends Controller
 
                                 echo '<script>alert("Devolução Realizada com Sucesso!")</script>';
                                 echo '<script>location.href="' . BASE_DEVOL . '"</script>';
+                                die();
                             }
                         } else {
-                            echo 'essa pessoa não locou esse filme!';
+                            echo '<script>alert("essa pessoa não locou esse filme!")</script>';
+                            echo '<script>location.href="' . BASE_DEVOL . '"</script>';
                             die();
                         }
                     } else {
-                        echo 'esse filme não está locado!';
+                        echo '<script>alert("esse filme não está locado!")</script>';
+                        echo '<script>location.href="' . BASE_DEVOL . '"</script>';
                         die();
                     }
                 } else {
-                    echo 'cpf inválido!';
+                    echo '<script>alert("cpf inválido!")</script>';
+                    echo '<script>location.href="' . BASE_DEVOL . '"</script>';
                     die();
                 }
             } else {
-                echo 'o código precisa ter 7 dígitos!';
+                echo '<script>alert("o código precisa ter 7 dígitos!")</script>';
+                echo '<script>location.href="' . BASE_DEVOL . '"</script>';
                 die();
             }
         }

@@ -39,10 +39,14 @@ class FilmesController extends Controller
                     die();
 
                 } else {
-                    echo 'insira o ano com apenas 4 caractéres!';
+                    echo '<script>alert("insira o ano com apenas 4 caractéres!")</script>';
+                    echo '<script>location.href="' . BASE_MOVIES . '"</script>';
+                    die();
                 }
             } else {
-                echo 'insira o código com apenas 7 caractéres!';
+                echo '<script>alert("insira o código com apenas 7 caractéres!")</script>';
+                echo '<script>location.href="' . BASE_MOVIES . '"</script>';
+                die();
             }
         }
     }

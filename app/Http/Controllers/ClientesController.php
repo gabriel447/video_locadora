@@ -46,23 +46,26 @@ class ClientesController extends Controller
 
 							echo '<script>alert("Inserido com sucesso!")</script>';
 							echo '<script>location.href="' . BASE_USERS . '"</script>';
-
 							die();
 						} else {
 							echo '<script>alert("Esse CPF já está cadastrado!")</script>';
 							echo '<script>location.href="' . BASE_USERS . '"</script>';
+							die();
 						}
 
 					} else {
-						echo 'cpf inválido';
+						echo '<script>alert("cpf inválido")</script>';
+						echo '<script>location.href="' . BASE_USERS . '"</script>';
 						die();
 					}
 				} else {
-					echo 'cep inválido';
+					echo '<script>alert("cep inválido")</script>';
+					echo '<script>location.href="' . BASE_USERS . '"</script>';
 					die();
 				}
 			} else {
-				echo 'celular inválido';
+				echo '<script>alert("celular inválido")</script>';
+				echo '<script>location.href="' . BASE_USERS . '"</script>';
 				die();
 			}
 		}

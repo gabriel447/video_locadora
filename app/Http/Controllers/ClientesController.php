@@ -24,7 +24,7 @@ class ClientesController extends Controller
 			$cpf = $req->input('cpf');
 
 			$check_cel = preg_match("/^[0-9]{2}\s[0-9]{5}-[0-9]{4}$/", $telefone);
-			$check_cep = preg_match("/[0-9]{5}-[0-9]{3}$/", $cep);
+			$check_cep = preg_match("/^[0-9]{5}-[0-9]{3}$/", $cep);
 			$check_cpf = preg_match("/^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$/", $cpf);
 
 			if ($check_cel) {

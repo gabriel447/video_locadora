@@ -42,10 +42,10 @@
         <form method="post">
             {{csrf_field()}}
             <input type="text" name="nome" placeholder="Nome..." required>
-            <input type="number" name="telefone" placeholder="Telefone..." required>
-            <input type="number" name="cep" placeholder="CEP..." required>
-            <input type="cpf" name="cpf" placeholder="CPF..." required>
-            <input style="margin-top: 20px;" type="submit" value="Cadastrar">
+            <input type="text" name="telefone" placeholder="Telefone..." required>
+            <input type="text" name="cep" placeholder="CEP..." required>
+            <input type="text" name="cpf" placeholder="CPF..." required>
+            <input style="margin-top: 20px;" type="submit" name="acao" value="Cadastrar">
         </form>
     </div>
 

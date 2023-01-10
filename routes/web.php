@@ -23,6 +23,10 @@ Route::get('/devolver', [DevolverController::class, 'index']);
 
 // insert, update
 Route::post('/clientes', [ClientesController::class, 'cadastrarCliente']);
+// Route::post('/clientes', [ClientesController::class, 'validarCep']);
+// Route::post('/clientes', [ClientesController::class, 'validarCpf']);
+// Route::post('/clientes', [ClientesController::class, 'validarTel']);
+
 Route::post('/filmes', [FilmesController::class, 'cadastrarFilme']);
 Route::post('/locar', [LocarController::class, 'cadastrarLocacao']);
 Route::post('/devolver', [DevolverController::class, 'cadastrarEntrega']);

@@ -28,7 +28,7 @@
             @foreach($filmes as $filme)
             <tbody>
                 <tr>
-                    <th scope="row">{{$filme->cod}}</th>
+                    <td>{{$filme->cod}}</td>
                     <td>{{$filme->nome}}</td>
                     <td>{{$filme->genero}}</td>
                     <td>{{$filme->lancamento}}</td>

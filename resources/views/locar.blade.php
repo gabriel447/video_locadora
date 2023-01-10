@@ -44,7 +44,7 @@
         <form method="post">
             {{csrf_field()}}
             <input type="number" name="cod" placeholder="COD..." required>
-            <input type="number" name="cpf" placeholder="CPF..." required>
+            <input type="text" name="cpf" placeholder="CPF..." required>
             <input style="margin-top: 20px;" type="submit" name="locar" value="Cadastrar">
         </form>
     </div>

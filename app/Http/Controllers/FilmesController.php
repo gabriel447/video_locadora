@@ -39,10 +39,10 @@ class FilmesController extends Controller
                     die();
 
                 } else {
-                    echo 'ano com apenas 4 caractéres!';
+                    echo 'insira o ano com apenas 4 caractéres!';
                 }
             } else {
-                echo 'código com apenas 7 caractéres!';
+                echo 'insira o código com apenas 7 caractéres!';
             }
         }
     }

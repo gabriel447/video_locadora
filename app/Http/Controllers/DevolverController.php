@@ -19,7 +19,7 @@ class DevolverController extends Controller
 
     public function cadastrarEntrega(Request $req)
     {
-        if ($req->has('devolver')) {
+        if (isset($_POST['devolver'])) {
             $cpf = $req->input('cpf');
             $cod = $req->input('cod');
 
@@ -38,30 +38,58 @@ class DevolverController extends Controller
             $multa = 3.0;
             $dias = $interval->days;
 
-            if ($dias > 4) {
+            $check_cod = preg_match('/^[1-9]{7}$/', $cod);
+            $check_cpf = preg_match("/^[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}$/", $cpf);
 
-                $dias = $dias - 4;
-                $res = $dias * $multa;
+            if ($check_cod) {
+                if ($check_cpf) {
 
-                $valor_total = $res + $valor;
+                    $query = DB::table('controle')->where('cod_filme', $cod)->value('cod_filme');
+                    $info  = DB::table('controle')->where('cpf_cliente', $cpf)->value('cpf_cliente');
 
-                DB::update('update filmes set disponivel = 0 where cod = ?', [$cod]);
-                DB::insert('insert into historicos (cpf_cliente, cod_filme, data_devolucao, valor, multa, valor_total) values (?, ?, ?, ?, ?, ?)', [$cpf, $cod, $data_fim, $valor, $multa, $valor_total]);
-                DB::delete('delete from controle where cpf_cliente = ? and cod_filme = ?', [$cpf, $cod]);
+                    if ($query) {
+                        if ($info) {
 
-                echo '<script>alert("Devolução com multa!")</script>';
-                echo '<script>location.href="' . BASE_DEVOL . '"</script>';
-                die();
+                            if ($dias > 4) {
+
+                                $dias = $dias - 4;
+                                $res = $dias * $multa;
+
+                                $valor_total = $res + $valor;
+
+                                DB::update('update filmes set disponivel = 0 where cod = ?', [$cod]);
+                                DB::insert('insert into historicos (cpf_cliente, cod_filme, data_devolucao, valor, multa, valor_total) values (?, ?, ?, ?, ?, ?)', [$cpf, $cod, $data_fim, $valor, $multa, $valor_total]);
+                                DB::delete('delete from controle where cpf_cliente = ? and cod_filme = ?', [$cpf, $cod]);
+
+                                echo '<script>alert("Devolução com multa!")</script>';
+                                echo '<script>location.href="' . BASE_DEVOL . '"</script>';
+                                die();
+                            } else {
+                                $multa = 0;
+                                $valor_total = $valor + $multa;
+
+                                DB::update('update filmes set disponivel = 0 where cod = ?', [$cod]);
+                                DB::insert('insert into historicos (cpf_cliente, cod_filme, data_devolucao, valor, multa, valor_total) values (?, ?, ?, ?, ?, ?)', [$cpf, $cod, $data_fim, $valor, $multa, $valor_total]);
+                                DB::delete('delete from controle where cpf_cliente = ? and cod_filme = ?', [$cpf, $cod]);
+
+                                echo '<script>alert("Devolução Realizada com Sucesso!")</script>';
+                                echo '<script>location.href="' . BASE_DEVOL . '"</script>';
+                            }
+                        } else {
+                            echo 'essa pessoa não locou esse filme!';
+                            die();
+                        }
+                    } else {
+                        echo 'esse filme não está locado!';
+                        die();
+                    }
+                } else {
+                    echo 'cpf inválido!';
+                    die();
+                }
             } else {
-                $multa = 0;
-                $valor_total = $valor + $multa;
-
-                DB::update('update filmes set disponivel = 0 where cod = ?', [$cod]);
-                DB::insert('insert into historicos (cpf_cliente, cod_filme, data_devolucao, valor, multa, valor_total) values (?, ?, ?, ?, ?, ?)', [$cpf, $cod, $data_fim, $valor, $multa, $valor_total]);
-                DB::delete('delete from controle where cpf_cliente = ? and cod_filme = ?', [$cpf, $cod]);
-
-                echo '<script>alert("Devolução Realizada com Sucesso!")</script>';
-                echo '<script>location.href="' . BASE_DEVOL . '"</script>';
+                echo 'o código precisa ter 7 dígitos!';
+                die();
             }
         }
     }

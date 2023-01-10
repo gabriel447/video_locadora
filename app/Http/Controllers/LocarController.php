@@ -26,6 +26,7 @@ class LocarController extends Controller
 
             $cod = $req->input('cod');
             $cpf = $req->input('cpf');
+            date_default_timezone_set('America/Sao_Paulo');
             $data = date('Y-m-d');
             
             $nome_cliente = DB::table('clientes')->where('cpf', $cpf)->value('nome');

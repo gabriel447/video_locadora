@@ -21,7 +21,20 @@ class FilmesController extends Controller
             $nome = $req->input('nome');
             $genero = $req->input('genero');
             $ano = $req->input('ano');
-            $cod = $req->input('cod');
+            $verifica = preg_match('/^[1-9]{7}$/', $ano);
+            if($verifica){
+                if($verifica){
+                    $cod = $req->input('cod');
+                    $verifica = preg_match('/^[0-9]{4}$/', $cod);
+                } else {
+                echo 'Código apenas com 7 dígitos!!';
+                echo '<br>';
+                }
+		    } else {
+			echo 'Ano somente com 4 dígitos!';
+			echo '<br>';
+		    }
+              
             $disponivel = 0;
             
             DB::insert('insert into filmes (nome, genero, lancamento, disponivel, cod) values (?, ?, ?, ?, ?)', [$nome, $genero, $ano, $disponivel, $cod]);
@@ -32,5 +45,3 @@ class FilmesController extends Controller
         }
     } 
 }
-
-?>

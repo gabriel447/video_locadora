@@ -15,18 +15,14 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [HomeController::class, 'index']);
 
-// select *
+// get
 Route::get('/clientes', [ClientesController::class, 'index']);
 Route::get('/filmes', [FilmesController::class, 'index']);
 Route::get('/locar', [LocarController::class, 'index']);
 Route::get('/devolver', [DevolverController::class, 'index']);
 
-// insert, update
+// post
 Route::post('/clientes', [ClientesController::class, 'cadastrarCliente']);
-// Route::post('/clientes', [ClientesController::class, 'validarCep']);
-// Route::post('/clientes', [ClientesController::class, 'validarCpf']);
-// Route::post('/clientes', [ClientesController::class, 'validarTel']);
-
 Route::post('/filmes', [FilmesController::class, 'cadastrarFilme']);
 Route::post('/locar', [LocarController::class, 'cadastrarLocacao']);
 Route::post('/devolver', [DevolverController::class, 'cadastrarEntrega']);

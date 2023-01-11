@@ -44,7 +44,6 @@
                     <div class="titulo-2">
                         <h2>Filmes Cadastrados:</h2>
                     </div>
-                    @if($filmes)
                     <table>
                         <thead>
                             <tr>
@@ -72,9 +71,6 @@
                         </tbody>
                         @endforeach
                     </table>
-                    @else
-                    <h3>Não temos nada cadastrado aqui ainda!</h3>
-                    @endif
                 </div>
             </div>
         </main>

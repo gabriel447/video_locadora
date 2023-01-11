@@ -42,7 +42,6 @@
                     <div class="titulo-1">
                         <h2>Histórico de Devoluções:</h2>
                     </div>
-                    @if($historicos)
                     <table>
                         <thead>
                             <tr>
@@ -71,9 +70,6 @@
                         </tbody>
                         @endforeach
                     </table>
-                    @else
-                    <h3>Não temos nada cadastrado aqui ainda!</h3>
-                    @endif
                 </div>
             </div>
         </main>

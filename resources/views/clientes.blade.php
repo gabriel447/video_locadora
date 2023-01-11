@@ -43,6 +43,7 @@
                     <div class="titulo-2">
                         <h2>Clientes Cadastrados:</h2>
                     </div>
+                    @foreach($clientes as $cliente)
                     <table>
                         <thead>
                             <tr>
@@ -52,7 +53,6 @@
                                 <th scope="col">cpf</th>
                             </tr>
                         </thead>
-                        @foreach($clientes as $cliente)
                         <tbody>
                             <tr>
                                 <td>{{$cliente->nome}}</td>
@@ -61,8 +61,8 @@
                                 <td>{{$cliente->cpf}}</td>
                             </tr>
                         </tbody>
-                        @endforeach
                     </table>
+                    @endforeach
                 </div>
             </div>
         </main>

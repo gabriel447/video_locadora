@@ -44,11 +44,11 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
-define('BASE_URL','http://localhost/video_locadora/public/index');
-define('BASE_USERS','http://localhost/video_locadora/public/clientes');
-define('BASE_MOVIES','http://localhost/video_locadora/public/filmes');
-define('BASE_LOCAR','http://localhost/video_locadora/public/locar');
-define('BASE_DEVOL','http://localhost/video_locadora/public/devolver');
+define('BASE_URL','https://laravel-production-5b14.up.railway.app/index');
+define('BASE_USERS','https://laravel-production-5b14.up.railway.app/clientes');
+define('BASE_MOVIES','https://laravel-production-5b14.up.railway.app/filmes');
+define('BASE_LOCAR','https://laravel-production-5b14.up.railway.app/locar');
+define('BASE_DEVOL','https://laravel-production-5b14.up.railway.app/devolver');
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
 

@@ -40,6 +40,7 @@
                     <div class="titulo-2">
                         <h2>Locações Atuais:</h2>
                     </div>
+                    @if($controle)
                     <table>
                         <thead>
                             <tr>
@@ -62,6 +63,9 @@
                         </tbody>
                         @endforeach
                     </table>
+                    @else
+                    <h3>Não temos nada cadastrado aqui ainda!</h3>
+                    @endif
                 </div>
             </div>
         </main>

@@ -32,7 +32,7 @@
                     <form method="post">
                         {{csrf_field()}}
                         <input type="text" name="nome" placeholder="Nome..." required>ex: Fulano da Vila
-                        <input type="text" name="telefone" placeholder="Telefone..." required>(xx) xxxxx-xxxx
+                        <input type="text" name="telefone" placeholder="Telefone..." required>xx xxxxx-xxxx
                         <input type="text" name="cep" placeholder="CEP..." required>xxxxx-xxx
                         <input type="text" name="cpf" placeholder="CPF..." required>xxx.xxx.xxx-xx
                         <input style="margin-top: 20px;" type="submit" name="acao" value="Cadastrar">
@@ -43,6 +43,7 @@
                     <div class="titulo-2">
                         <h2>Clientes Cadastrados:</h2>
                     </div>
+                    @if($clientes)
                     <table>
                         <thead>
                             <tr>
@@ -63,6 +64,9 @@
                         </tbody>
                         @endforeach
                     </table>
+                    @else
+                    <h3>Não temos nada cadastrado aqui ainda!</h3>
+                    @endif
                 </div>
             </div>
         </main>

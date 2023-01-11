@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Jan-2023 às 01:24
+-- Tempo de geração: 11-Jan-2023 às 01:48
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.0.25
 
@@ -34,14 +34,6 @@ CREATE TABLE `clientes` (
   `cep` varchar(255) NOT NULL,
   `cpf` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Extraindo dados da tabela `clientes`
---
-
-INSERT INTO `clientes` (`id`, `nome`, `telefone`, `cep`, `cpf`) VALUES
-(1, 'Gabriel dos anjos senra', '41 98799-8159', '81830-610', '091.345.759-01'),
-(2, 'Camila Soares Silva', '41 98799-4122', '81830-640', '741.208.564-98');
 
 -- --------------------------------------------------------
 
@@ -140,7 +132,7 @@ ALTER TABLE `historicos`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `controle`
@@ -152,7 +144,7 @@ ALTER TABLE `controle`
 -- AUTO_INCREMENT de tabela `filmes`
 --
 ALTER TABLE `filmes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `historicos`

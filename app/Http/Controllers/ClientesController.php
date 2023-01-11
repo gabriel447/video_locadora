@@ -44,7 +44,7 @@ class ClientesController extends Controller
 
 							$clientes->save();
 
-							echo '<script>alert("Filme Inserido com Sucesso!")</script>';
+							echo '<script>alert("Cadastrado com Sucesso!")</script>';
 							echo '<script>location.href="' . BASE_USERS . '"</script>';
 							die();
 						} else {

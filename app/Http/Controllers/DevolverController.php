@@ -93,7 +93,7 @@ class DevolverController extends Controller
                     die();
                 }
             } else {
-                echo '<script>alert("o código precisa ter 7 dígitos!")</script>';
+                echo '<script>alert("o código precisa ter apenas 7 dígitos!")</script>';
                 echo '<script>location.href="' . BASE_DEVOL . '"</script>';
                 die();
             }

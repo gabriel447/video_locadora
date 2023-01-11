@@ -34,7 +34,7 @@ class FilmesController extends Controller
 
                     DB::insert('insert into filmes (nome, genero, lancamento, disponivel, cod) values (?, ?, ?, ?, ?)', [$nome, $genero, $ano, $disponivel, $cod]);
 
-                    echo '<script>alert("Cadastrado com sucesso!")</script>';
+                    echo '<script>alert("Filme Cadastrado com Sucesso!")</script>';
                     echo '<script>location.href="' . BASE_MOVIES . '"</script>';
                     die();
 
@@ -44,7 +44,7 @@ class FilmesController extends Controller
                     die();
                 }
             } else {
-                echo '<script>alert("insira o código com apenas 7 caractéres!")</script>';
+                echo '<script>alert("Insira um código com apenas 7 caractéres!")</script>';
                 echo '<script>location.href="' . BASE_MOVIES . '"</script>';
                 die();
             }

@@ -44,7 +44,7 @@ class ClientesController extends Controller
 
 							$clientes->save();
 
-							echo '<script>alert("Inserido com sucesso!")</script>';
+							echo '<script>alert("Filme Inserido com Sucesso!")</script>';
 							echo '<script>location.href="' . BASE_USERS . '"</script>';
 							die();
 						} else {
@@ -54,17 +54,17 @@ class ClientesController extends Controller
 						}
 
 					} else {
-						echo '<script>alert("cpf inválido")</script>';
+						echo '<script>alert("CPF inválido!")</script>';
 						echo '<script>location.href="' . BASE_USERS . '"</script>';
 						die();
 					}
 				} else {
-					echo '<script>alert("cep inválido")</script>';
+					echo '<script>alert("CEP inválido!")</script>';
 					echo '<script>location.href="' . BASE_USERS . '"</script>';
 					die();
 				}
 			} else {
-				echo '<script>alert("celular inválido")</script>';
+				echo '<script>alert("Celular inválido!")</script>';
 				echo '<script>location.href="' . BASE_USERS . '"</script>';
 				die();
 			}

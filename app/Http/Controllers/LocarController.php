@@ -49,7 +49,7 @@ class LocarController extends Controller
                                 DB::update('update filmes set disponivel = 1 where cod = ?', [$cod]);
                                 DB::insert('insert into controle (nome_cliente, nome_filme, cod_filme, cpf_cliente, data_locado) values (?, ?, ?, ?, ?)', [$nome_cliente, $nome_filme, $cod, $cpf, $data]);
 
-                                echo '<script>alert("Cadastrado com sucesso!")</script>';
+                                echo '<script>alert("Cadastrado com Sucesso!")</script>';
                                 echo '<script>location.href="' . BASE_LOCAR . '"</script>';
                                 die();
                             } else {
@@ -58,22 +58,22 @@ class LocarController extends Controller
                                 die();
                             }
                         } else {
-                            echo '<script>alert("Esse Cpf não está cadastrado!")</script>';
+                            echo '<script>alert("Esse CPF não está cadastrado!")</script>';
                             echo '<script>location.href="' . BASE_LOCAR . '"</script>';
                             die();
                         }
                     } else {
-                        echo '<script>alert("Esse filme não foi cadastrado!")</script>';
+                        echo '<script>alert("Esse Filme não foi cadastrado!")</script>';
                         echo '<script>location.href="' . BASE_LOCAR . '"</script>';
                         die();
                     }
                 } else {
-                    echo '<script>alert("cpf inválido!")</script>';
+                    echo '<script>alert("CPF inválido!")</script>';
                     echo '<script>location.href="' . BASE_LOCAR . '"</script>';
                     die();
                 }
             } else {
-                echo '<script>alert("o código precisa ter 7 dígitos!")</script>';
+                echo '<script>alert("O Código precisa ter apenas 7 dígitos!")</script>';
                 echo '<script>location.href="' . BASE_LOCAR . '"</script>';
                 die();
             }

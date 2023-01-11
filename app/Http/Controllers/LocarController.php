@@ -36,29 +36,34 @@ class LocarController extends Controller
             if ($check_cod) {
                 if ($check_cpf) {
 
-                    $query = DB::table('controle')->where('cod_filme', $cod)->value('cod_filme');
+                    $check = DB::table('filmes')->where('cod', $cod)->value('cod');
                     $info  = DB::table('clientes')->where('cpf', $cpf)->value('cpf');
+                    $query = DB::table('controle')->where('cod_filme', $cod)->value('cod_filme');
+                    if ($check) {
+                        if ($info) {
+                            if (!$query) {
 
-                    if ($info) {
+                                $nome_cliente = DB::table('clientes')->where('cpf', $cpf)->value('nome');
+                                $nome_filme = DB::table('filmes')->where('cod', $cod)->value('nome');
 
-                        if (!$query) {
+                                DB::update('update filmes set disponivel = 1 where cod = ?', [$cod]);
+                                DB::insert('insert into controle (nome_cliente, nome_filme, cod_filme, cpf_cliente, data_locado) values (?, ?, ?, ?, ?)', [$nome_cliente, $nome_filme, $cod, $cpf, $data]);
 
-                            $nome_cliente = DB::table('clientes')->where('cpf', $cpf)->value('nome');
-                            $nome_filme = DB::table('filmes')->where('cod', $cod)->value('nome');
-
-                            DB::update('update filmes set disponivel = 1 where cod = ?', [$cod]);
-                            DB::insert('insert into controle (nome_cliente, nome_filme, cod_filme, cpf_cliente, data_locado) values (?, ?, ?, ?, ?)', [$nome_cliente, $nome_filme, $cod, $cpf, $data]);
-
-                            echo '<script>alert("Cadastrado com sucesso!")</script>';
-                            echo '<script>location.href="' . BASE_LOCAR . '"</script>';
-                            die();
+                                echo '<script>alert("Cadastrado com sucesso!")</script>';
+                                echo '<script>location.href="' . BASE_LOCAR . '"</script>';
+                                die();
+                            } else {
+                                echo '<script>alert("Esse Filme já foi locado!")</script>';
+                                echo '<script>location.href="' . BASE_LOCAR . '"</script>';
+                                die();
+                            }
                         } else {
-                            echo '<script>alert("Esse Filme foi locado por outra pessoa!")</script>';
+                            echo '<script>alert("Esse Cpf não está cadastrado!")</script>';
                             echo '<script>location.href="' . BASE_LOCAR . '"</script>';
                             die();
                         }
                     } else {
-                        echo '<script>alert("Esse cpf não existe no nosso Sistema!")</script>';
+                        echo '<script>alert("Esse filme não foi cadastrado!")</script>';
                         echo '<script>location.href="' . BASE_LOCAR . '"</script>';
                         die();
                     }

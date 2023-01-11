@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Jan-2023 às 01:22
+-- Tempo de geração: 11-Jan-2023 às 01:24
 -- Versão do servidor: 10.4.27-MariaDB
 -- versão do PHP: 8.0.25
 
@@ -78,7 +78,7 @@ CREATE TABLE `filmes` (
 --
 
 INSERT INTO `filmes` (`id`, `nome`, `genero`, `lancamento`, `disponivel`, `cod`) VALUES
-(1, '007: Sem tempo para morrer', 'ação', 2022, 1, 2312948),
+(1, '007: Sem tempo para morrer', 'ação', 2022, 0, 2312948),
 (2, 'Casa Comigo', 'romance', 2022, 0, 2131412),
 (3, 'John Wick 4', 'ação', 2022, 0, 4123124),
 (4, 'Jurassic World: Domínio', 'aventura', 2022, 0, 2412355),

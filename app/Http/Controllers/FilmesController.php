@@ -27,24 +27,31 @@ class FilmesController extends Controller
             $check_cod = preg_match('/^[1-9]{7}$/', $cod);
             $check_ano = preg_match('/^[0-9]{4}$/', $ano);
 
-            if ($check_cod) {
-                if ($check_ano) {
+            $query = DB::table('filmes')->where('cod', $cod)->value('cod');
 
-                    $disponivel = 0;
+            if (!$query) {
+                if ($check_cod) {
+                    if ($check_ano) {
 
-                    DB::insert('insert into filmes (nome, genero, lancamento, disponivel, cod) values (?, ?, ?, ?, ?)', [$nome, $genero, $ano, $disponivel, $cod]);
+                        $disponivel = 0;
 
-                    echo '<script>alert("Filme Cadastrado com Sucesso!")</script>';
-                    echo '<script>location.href="' . BASE_MOVIES . '"</script>';
-                    die();
+                        DB::insert('insert into filmes (nome, genero, lancamento, disponivel, cod) values (?, ?, ?, ?, ?)', [$nome, $genero, $ano, $disponivel, $cod]);
 
+                        echo '<script>alert("Filme Cadastrado com Sucesso!")</script>';
+                        echo '<script>location.href="' . BASE_MOVIES . '"</script>';
+                        die();
+                    } else {
+                        echo '<script>alert("insira o ano com apenas 4 caractéres!")</script>';
+                        echo '<script>location.href="' . BASE_MOVIES . '"</script>';
+                        die();
+                    }
                 } else {
-                    echo '<script>alert("insira o ano com apenas 4 caractéres!")</script>';
+                    echo '<script>alert("Insira um código com apenas 7 caractéres!")</script>';
                     echo '<script>location.href="' . BASE_MOVIES . '"</script>';
                     die();
                 }
             } else {
-                echo '<script>alert("Insira um código com apenas 7 caractéres!")</script>';
+                echo '<script>alert("Já existe um Filme cadastrado com esse código!")</script>';
                 echo '<script>location.href="' . BASE_MOVIES . '"</script>';
                 die();
             }

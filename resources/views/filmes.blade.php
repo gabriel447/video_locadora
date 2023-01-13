@@ -44,7 +44,6 @@
                     <div class="titulo-2">
                         <h2>Filmes Cadastrados:</h2>
                     </div>
-                    @foreach($filmes as $filme)
                     <table>
                         <thead>
                             <tr>
@@ -55,6 +54,7 @@
                                 <th scope="col">disponibilidade</th>
                             </tr>
                         </thead>
+                        @foreach($filmes as $filme)
                         <tbody>
                             <tr>
                                 <td>{{$filme->cod}}</td>
@@ -69,8 +69,8 @@
                                 @endif
                             </tr>
                         </tbody>
+                        @endforeach
                     </table>
-                    @endforeach
                 </div>
             </div>
         </main>

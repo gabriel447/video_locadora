@@ -42,7 +42,6 @@
                     <div class="titulo-1">
                         <h2>Histórico de Devoluções:</h2>
                     </div>
-                    @foreach($historicos as $hist)
                     <table>
                         <thead>
                             <tr>
@@ -54,6 +53,7 @@
                                 <th scope="col">valor total</th scope="col">
                             </tr>
                         </thead>
+                        @foreach($historicos as $hist)
                         <tbody>
                             <tr>
                                 <td>{{$hist->cod_filme}}</td>
@@ -68,8 +68,8 @@
                                 <td>R$ <a>{{$hist->valor_total}}</a></td>
                             </tr>
                         </tbody>
+                        @endforeach
                     </table>
-                    @endforeach
                 </div>
             </div>
         </main>

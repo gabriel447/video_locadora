@@ -40,7 +40,6 @@
                     <div class="titulo-2">
                         <h2>Locações Atuais:</h2>
                     </div>
-                    @foreach($controle as $ctrl)
                     <table>
                         <thead>
                             <tr>
@@ -51,6 +50,7 @@
                                 <th scope="col">data de locação</th>
                             </tr>
                         </thead>
+                        @foreach($controle as $ctrl)
                         <tbody>
                             <tr>
                                 <td>{{$ctrl->cod_filme}}</td>
@@ -60,8 +60,8 @@
                                 <td>{{$ctrl->data_locado}}</td>
                             </tr>
                         </tbody>
+                        @endforeach
                     </table>
-                    @endforeach
                 </div>
             </div>
         </main>

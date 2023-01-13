@@ -44,6 +44,7 @@ require __DIR__.'/../vendor/autoload.php';
 |
 */
 
+
 define('BASE_URL','./index');
 define('BASE_USERS','./clientes');
 define('BASE_MOVIES','./filmes');

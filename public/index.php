@@ -45,11 +45,11 @@ require __DIR__.'/../vendor/autoload.php';
 */
 
 
-define('BASE_URL','https://laravel-production-5b14.up.railway.app/index');
-define('BASE_USERS','https://laravel-production-5b14.up.railway.app/clientes');
-define('BASE_MOVIES','https://laravel-production-5b14.up.railway.app/filmes');
-define('BASE_LOCAR','https://laravel-production-5b14.up.railway.app/locar');
-define('BASE_DEVOL','https://laravel-production-5b14.up.railway.app/devolver');
+define('BASE_URL','/index');
+define('BASE_USERS','/clientes');
+define('BASE_MOVIES','/filmes');
+define('BASE_LOCAR','/locar');
+define('BASE_DEVOL','/devolver');
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
 

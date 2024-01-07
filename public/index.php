@@ -45,11 +45,11 @@ require __DIR__.'/../vendor/autoload.php';
 */
 
 
-define('BASE_URL','/index');
-define('BASE_USERS','/clientes');
-define('BASE_MOVIES','/filmes');
-define('BASE_LOCAR','/locar');
-define('BASE_DEVOL','/devolver');
+define('BASE_URL','./index');
+define('BASE_USERS','./clientes');
+define('BASE_MOVIES','./filmes');
+define('BASE_LOCAR','./locar');
+define('BASE_DEVOL','./devolver');
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
 

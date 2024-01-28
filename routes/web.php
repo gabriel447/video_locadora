@@ -20,6 +20,7 @@ Route::get('/clientes', [ClientesController::class, 'index']);
 Route::get('/filmes', [FilmesController::class, 'index']);
 Route::get('/locar', [LocarController::class, 'index']);
 Route::get('/devolver', [DevolverController::class, 'index']);
+Route::get('/login', [LoginController::class, 'index']);
 
 // post
 Route::post('/clientes', [ClientesController::class, 'cadastrarCliente']);

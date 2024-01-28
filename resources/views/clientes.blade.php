@@ -15,7 +15,7 @@
 <body>
     <div class="page">
         <nav>
-            <a href="./" style="font-weight:bold;">Home</a>
+            <a href="/home" style="font-weight:bold;">Home</a>
             <ul>
                 <li><a href="filmes"> Filmes </a></li>
                 <li><a href="locar"> Locações </a></li>

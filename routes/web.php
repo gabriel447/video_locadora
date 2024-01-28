@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/', [LoginController::class, 'index']);
+Route::get('/home', [HomeController::class, 'index']);
 
 // get
 Route::get('/clientes', [ClientesController::class, 'index']);

@@ -16,7 +16,7 @@
 <body>
     <div class="page">
         <nav>
-            <a href="./" style="font-weight:bold;">Home</a>
+            <a href="/login" style="font-weight:bold;">Login</a>
 
             <ul>
                 <li><a href="clientes"> Clientes </a></li>

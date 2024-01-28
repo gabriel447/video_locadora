@@ -10,7 +10,7 @@
 
 <body class="bg-dark">
     <div class="d-flex justify-content-center align-items-center vh-100 bg-primary">
-        <form class="col-6 bg-white rounded p-5">
+        <form class="col-6 bg-white rounded p-5" method="">
             <div class="form-group m-4">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control form-control-sm" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
@@ -24,7 +24,7 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
             </div>
-            <button type="submit" class="btn btn-primary m-4">Submit</button>
+            <button type="submit" class="btn btn-primary m-4"><a href="/home" class="text-white" style="text-decoration: none;">Submit</a></button>
         </form>
     </div>
 </body>
